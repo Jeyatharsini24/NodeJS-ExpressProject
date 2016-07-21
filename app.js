@@ -6,10 +6,15 @@
 var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
+  , about = require('./routes/about')
   , http = require('http')
   , path = require('path');
 
 var app = express();
+
+app.locals.my_global_variable = "My Global Variable";
+// create a global variable
+app.locals.json_file_to_use_in_code = require('./json_file_to_use_in_code.json');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -28,6 +33,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/about', about.about);
 app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){

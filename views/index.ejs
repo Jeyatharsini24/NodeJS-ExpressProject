@@ -5,7 +5,23 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
+  	<% include templates/header.ejs %>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <p>Welcome to <%= title %> from <%=name %></p>
+    <ul>
+    	<%for(var i = 0; i < 5; i++){%>
+    		<li>Miyaav</li>
+    	<%}%>
+    </ul>
+    <h2><%= my_global_variable %>
+    <h1><%= localdata.categoryName %></h1>
+    <ul>
+    		<% localdata.items.forEach(function(item){%>
+				<li><h3><%= item.id %><h3>
+	    		<h3><%= item.items %><h3>
+	    		</li>
+	    		</br>
+    		<%}); %>
+    </ul>
   </body>
 </html>

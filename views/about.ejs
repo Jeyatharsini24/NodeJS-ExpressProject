@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>About</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+  	<% include templates/header.ejs %>
+    <h3>About Page</h3>
+    <h1>Nothing. You have been cheated</h1>
+    <h2><%= my_global_variable %>
+    <h1><%= json_file_to_use_in_code.categoryName %><h3>
+    <h2><%= json_file_to_use_in_code.items %><h3>
+    <h3><%= json_file_to_use_in_code.items[0].id %><h3>
+    <h3><%= json_file_to_use_in_code.items[0].items %><h3>
+    <p>
+    	<ul>
+    		<% json_file_to_use_in_code.items.forEach(function(item){%>
+				<li><h3><%= item.id %><h3>
+	    		<h3><%= item.items %><h3>
+	    		</li>
+	    		</br>
+    		<%}); %>
+    	</ul>
+    </p>
+  </body>
+</html>
